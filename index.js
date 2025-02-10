@@ -9,6 +9,9 @@ app.get('/api/add',(req,res)=>{
     res.json({sum:sum});
 })
 
+app.get('/new-route',(req,res)=>{
+    res.send("This is a new route!");
+});
 app.get('/api/greet',(req,res)=>{
     const name = req.query.name || 'Guest';
     res.send(`Hello, ${name}!`);
