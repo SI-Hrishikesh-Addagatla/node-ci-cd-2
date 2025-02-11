@@ -30,4 +30,16 @@ describe('API Tests',()=>{
         expect(res.text).toBe('Hello, Hrishikesh!');
 
     });
+
+    it('GET /new-route', async ()=>{
+        const res = await request(app).get('/new-route');
+        expect(res.statusCode).toBe(200);
+        expect(res.text).toBe('This is a new route!');
+    });
+
+    it('GET /deploy', async ()=>{
+        const res = await request(app).get('/deploy');
+        expect(res.statusCode).toBe(200);
+        expect(res.text).toBe('EC2 Deployment Working Successfully');
+    });
 })
