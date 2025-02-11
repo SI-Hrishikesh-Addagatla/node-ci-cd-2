@@ -38,9 +38,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
-      
-      - name: Run application
-        run: nohup npm start & sleep 10
   
   deploy:
     runs-on: ubuntu-latest
