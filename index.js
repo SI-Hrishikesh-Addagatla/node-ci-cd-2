@@ -29,6 +29,10 @@ app.get('/caching',(req,res)=>{
     res.send("Caching enabled")
 });
 
+app.get('/testing-speed',(req,res)=>{
+    res.send("See the time taken for the pipeline");
+})
+
 module.exports = app;
 
 if(require.main===module){
