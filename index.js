@@ -25,6 +25,9 @@ app.get('/deploy',(req,res)=>{
     res.send("EC2 Deployment Working Successfully")
 });
 
+app.get('/caching',(req,res)=>{
+    res.send("Caching enabled")
+});
 
 module.exports = app;
 

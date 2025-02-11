@@ -11,12 +11,16 @@ jobs:
     steps: 
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with: 
           node-version: '14'
+          cache: 'npm' #Enables caching for npm packages
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci #Faster than 'npm install'
+
       - name: Run tests
         run: npm test
         

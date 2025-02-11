@@ -42,4 +42,11 @@ describe('API Tests',()=>{
         expect(res.statusCode).toBe(200);
         expect(res.text).toBe('EC2 Deployment Working Successfully');
     });
+
+    it('GET /caching', async ()=>{
+        const res = await request(app).get('/caching');
+        expect(res.statusCode).toBe(200);
+        expect(res.text).toBe('Caching enabled');
+    });
+
 })
