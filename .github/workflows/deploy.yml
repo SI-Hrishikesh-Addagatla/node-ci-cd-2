@@ -42,4 +42,15 @@ jobs:
             docker rm myapp || true
             docker run -d -p 3000:3000 --name myapp hrishi0304/github-act-node-1:v1
           EOF
+
+      - name: Deploy logs
+        if: failure()
+        run: cat npm-debug.log > deploy-log.txt || echo "No debug log found"
+  
+      - name: Upload deploy logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: deploy-logs
+          path: deploy-log.txt
+
   
