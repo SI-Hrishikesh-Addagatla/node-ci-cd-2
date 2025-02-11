@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with: 
-          node-version: '18'
+          node-version: ${{ matrix.node-version }} 
           cache: 'npm' 
           cache-dependency-path: package-lock.json
 
@@ -26,4 +26,14 @@ jobs:
         run: npm ci --no-audit --no-fund
 
       - name: Run tests
-        run: npm test
+        run: npm tes
+
+      - name: Save test logs
+        if: failure()
+        run: cat npm-debug.log > test-log.txt || echo "No debug log found"
+
+      - name: Upload test logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-logs-${{ matrix.node-version }}
+          path: test-log.txt
