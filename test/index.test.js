@@ -49,4 +49,9 @@ describe('API Tests',()=>{
         expect(res.text).toBe('Caching enabled');
     });
 
+    it('GET /testing-speed', async ()=>{
+        const res = await request(app).get('/testing-speed');
+        expect(res.statusCode).toBe(200);
+        expect(res.text).toBe('See the time taken for the pipeline');
+    });
 })
